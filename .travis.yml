@@ -11,5 +11,4 @@ addons:
       secure: $SONAR_TOKEN
       
 script:
-  # other script steps might be done before running the actual analysis
-  - mvn clean org.jacoco:jacoco-maven-plugin:prepare-agent install sonar:sonar
+  mvn sonar:sonar -Dsonar.projectKey=ghaniturismo_TP_bootiful -Dsonar.organization=ghaniturismo-github -Dsonar.host.url=https://sonarcloud.io -Dsonar.login=ae7b83eb7fc46aa48706dc29649d7f593e46a397
