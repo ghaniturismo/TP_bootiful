@@ -1,7 +1,7 @@
 jdk: oraclejdk8
 
 script:
-- mvn package
+- mvn clean install
 
 env:
     global:
