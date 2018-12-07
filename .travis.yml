@@ -1,14 +1,17 @@
+language: java
 jdk: oraclejdk8
-
-script:
-- mvn package
-
-env:
-    global:
-        - secure: "A5KXQOnsvFF0pUuBvpczk5mWttt3gSt3vpRt+ILSwcoXMGh3at6IYyA9J1W9vG2HsrikD0zGcV9CpI/ayibXD/mHuBuyFg8xrvmdGUxRfCE+p6viGcYwrCiLaeJFvEJ9nmplEgc0p7M6d4xYxm2trpkcDft2+uIufYFb1UTDdGvh/Occ8T8klv9l32R13UmkjUhBgGXGgDsOVvY4YXS0OJAUbf9qom4pEA9lF/YNyULTAmT1ueg070gOeFgSKG2rzNFnmaiZtc3fdqHycSCufNiv/sT74iQrv0hEbYFy1dJtst8u4RxEtiqn+6cTLIgE7xFbnvMNBp4l9JX8JsM/irMtXSI8zSNRim6beLNG+YOAnsqwmEi2vzjgqaf1hUc9JRyjYQZzhkGmtMcHHpsghU2CR40f+esaFKIxA3Z2Fd0a65+QSdc7c9aXHo73SWANSSSdkQqPNEmlZ/NWr8FbL+Z18s8uxboOdNZVFYYhD4hbyhQK2yUCqMFnvQ43P0KCzYvrbbsNVfuINs69ToMcKbEhmbqrLMxOMWU4IxnHBYBUtOz2Xn64LomnG3aYiuoTQIt8GqrPokGCjbtLY9OE13on+naiuviY3auW1+oncKPy6ZFzxtuapWRLUEp3FASlljink724iM2HIDHHsVChQw6M8uTveL8ex5F830UUT2w="
-
+branches:
+  only:
+  - master
 addons:
   sonarcloud:
-    organization: "ghaniturismo-github"
+    organization: ghaniturismo-github
     token:
       secure: $SONAR_TOKEN
+script:
+- mvn clean org.jacoco:jacoco-maven-plugin:prepare-agent install sonar:sonar
+after_deploy:
+- echo "done deploying"
+env:
+  global:
+  - secure: A5KXQOnsvFF0pUuBvpczk5mWttt3gSt3vpRt+ILSwcoXMGh3at6IYyA9J1W9vG2HsrikD0zGcV9CpI/ayibXD/mHuBuyFg8xrvmdGUxRfCE+p6viGcYwrCiLaeJFvEJ9nmplEgc0p7M6d4xYxm2trpkcDft2+uIufYFb1UTDdGvh/Occ8T8klv9l32R13UmkjUhBgGXGgDsOVvY4YXS0OJAUbf9qom4pEA9lF/YNyULTAmT1ueg070gOeFgSKG2rzNFnmaiZtc3fdqHycSCufNiv/sT74iQrv0hEbYFy1dJtst8u4RxEtiqn+6cTLIgE7xFbnvMNBp4l9JX8JsM/irMtXSI8zSNRim6beLNG+YOAnsqwmEi2vzjgqaf1hUc9JRyjYQZzhkGmtMcHHpsghU2CR40f+esaFKIxA3Z2Fd0a65+QSdc7c9aXHo73SWANSSSdkQqPNEmlZ/NWr8FbL+Z18s8uxboOdNZVFYYhD4hbyhQK2yUCqMFnvQ43P0KCzYvrbbsNVfuINs69ToMcKbEhmbqrLMxOMWU4IxnHBYBUtOz2Xn64LomnG3aYiuoTQIt8GqrPokGCjbtLY9OE13on+naiuviY3auW1+oncKPy6ZFzxtuapWRLUEp3FASlljink724iM2HIDHHsVChQw6M8uTveL8ex5F830UUT2w=
