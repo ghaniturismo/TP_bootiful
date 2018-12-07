@@ -4,7 +4,6 @@ jdk: oraclejdk8
 
 script:
 - mvn clean package
-- mvn clean org.jacoco:jacoco-maven-plugin:prepare-agent package sonar:sonar
 
 env:
     global:
