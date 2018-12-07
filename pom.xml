@@ -48,6 +48,11 @@
 			<version>3.0.3</version>
 			<scope>test</scope>
 		</dependency>
+		<dependency>
+			<groupId>net.serenity-bdd</groupId>
+			<artifactId>serenity-jbehave</artifactId>
+			<version>1.44.0</version>
+		</dependency>
 	</dependencies>
 
 	<build>
