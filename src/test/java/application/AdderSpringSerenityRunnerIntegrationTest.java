@@ -6,17 +6,18 @@ import org.junit.Test;
 import org.junit.runner.RunWith;
 import org.springframework.beans.factory.annotation.Value;
 
+import org.springframework.test.context.ContextConfiguration;
+
 @RunWith(SpringIntegrationSerenityRunner.class)
+@ContextConfiguration(locations = "classpath:../resources/adder-beans.xml")
 public class AdderSpringSerenityRunnerIntegrationTest {
     @Steps
     private AdderServiceSteps adderSteps;
-    @Value("#{props['adder']}")
-    private int adder;
-
+    @Value("#{props['adder']}") private int adder;
     @Test
     public void givenNumber_whenAdd_thenSummedUp() {
-        adderSteps.givenNumber();
-        adderSteps.whenAdd(adder);
+        adderSteps.setGivenNumber(0);
+        adderSteps.whenAdd();
         adderSteps.thenSummedUp();
     }
 }

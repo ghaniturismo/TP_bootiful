@@ -53,7 +53,10 @@
 			<artifactId>serenity-jbehave</artifactId>
 			<version>1.44.0</version>
 		</dependency>
+<<<<<<< HEAD
 
+=======
+>>>>>>> 7085ec486a6d5c94e8dfed3135d12ddb17f569bf
 	</dependencies>
 
 	<build>
