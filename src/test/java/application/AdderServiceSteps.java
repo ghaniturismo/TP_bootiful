@@ -19,6 +19,11 @@ public class AdderServiceSteps {
         adderService.baseNum(base);
         this.givenNumber = adder;
     }
+
+    public void setGivenNumber(int n){
+        this.givenNumber = n;
+    }
+
     public void whenAdd() {
         sum = adderService.add(givenNumber);
     }
