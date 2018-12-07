@@ -1,7 +1,6 @@
-language: java
+nguage: java
+
 jdk: oraclejdk8
-branches:
-  only:
-    - master
+
 script:
-  - "./mvnw clean install -B"
+          - mvn package
