@@ -8,7 +8,7 @@ import org.springframework.beans.factory.annotation.Value;
 import org.springframework.test.context.ContextConfiguration;
 
 @RunWith(SpringIntegrationSerenityRunner.class)
-@ContextConfiguration(locations = "classpath:../resources/adder-beans.xml")
+@ContextConfiguration(locations = "classpath:adder-beans.xml")
 public class AdderSpringSerenityRunnerIntegrationTest {
     @Steps
     private AdderServiceSteps adderSteps;
