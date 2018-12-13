@@ -12,7 +12,7 @@ before_install:
   - chmod +x mvnw
 script:
   - mvn clean install
-  - mvn sonar:sonar
+  - mvn sonar:sonar -Dsonar.host.url=https://sonarqube.com -Dsonar.login="$SONAR_TOKEN" -Dsonar.projectKey=ghaniturismo-github
 after_deploy:
   - echo "done deploying"
 env:
